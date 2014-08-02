@@ -29,8 +29,8 @@
 	<!--
 	Next steps:
 	1. Login to database (v)
-	2. output in one page - search page. 
-	3. call it from the search page - ajax output and angular search function.
+	2. output in one page - search page. (v)
+	3. call it from the search page - search / see if angular work .... .
 	-->
 
 <main id="page">
@@ -98,7 +98,7 @@
 		</div>
 
 
-		<!--<button> Add New // later on do this for multiple keys </button> <!-- CLick this add new one-->
+		<!--<button> Add New // later on do this for multiple keys </button> CLick this add new one-->
 		<!--<div class="inputBox">
 			<label for="text-basic"> Lock Model </label>
 			<input type="text" name="lockModel" id="text-basic" value="">
