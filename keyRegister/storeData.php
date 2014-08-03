@@ -1,5 +1,7 @@
 
 <?php
+include('config.php');
+/*
 // define database credentials
 $host='127.0.0.1';
 $user='root';
@@ -10,6 +12,7 @@ $database='ulacbackend';
 $conn = mysql_connect($host,$user,$password) or die('Error: could not connect to database'.mysql_error());
 
 mysql_select_db($database,$conn) or die('Error in selecting db.'.mysql_error());
+*/
 
 // restore from info to variables
 $name = $_POST['name'];
@@ -34,6 +37,6 @@ if(mysql_query($sql))
 {
     echo 'Error: We encountered an error while inserting the new record.'.mysql_error();
 }
-mysql_close($conn);
+mysql_close($mysqli);
 
 ?>

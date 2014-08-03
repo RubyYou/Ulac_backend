@@ -29,13 +29,17 @@
 	<!--
 	Next steps:
 	1. Login to database (v)
-	2. output in one page - search page. (v)
-	3. call it from the search page - search / see if angular work .... .
+	2. Output in one page - search page. (v)
+	3. Call it from the search page - search / see if angular work .... .
+	   http://www.angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/
+	4. from validator
+	5. another table for more key registration. associated db. // user table link key table.
+	6. add new featured.
+	7. search page login.
 	-->
 
 <main id="page">
 
-	<!-- create 5 question with check list ?-->
 	<h3> Key / Combination Registration </h3>
 	<p><b>Key Registration</b><br/>
 		It happens. You could lose your keys. Many of our locks are 
@@ -87,7 +91,8 @@
 		</div>
 
 		<h3>What is your Lock Model? </h3>
-		<p>Please provides your lock model and combination.</p>
+		<p>Please provides your lock model and combination.
+		   Maximum five lock register for one user. </p>
 		<div class="inputBox">
 			<label for="text-basic"> Lock Model *</label>
 			<input type="text" name="lockModel" id="text-basic" value="">

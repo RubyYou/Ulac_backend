@@ -1,72 +1,79 @@
-<?php 
-// This page do:
-// output all data in this page and then integrate search
+<!DOCTYPE html>
+<html ng-app="myApp" ng-app> 
+<head>
+	<title>search for Registered User info</title>
+	<link href="js/bootstrap.min.css" rel="stylesheet">
+</head>
 
+<body>
+<div ng-controller="searchCrtl">
+	<label for="search"> Search for Registered User info .... </label>
+	<div>PageSize:
+		<select ng-model="entryLimit" class="form-control">
+			<option>5</option>
+			<option>10</option>
+			<option>20</option>
+			<option>50</option>
+			<option>100</option>
+		</select>
+	</div>
+	<div>Filter:
+		<input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control" />
+	</div>
+	<div>
+		<h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
+	</div>
 
-$db_host="127.0.0.1";
-$db_name="ulacbackend";
-$username="root";
-$password="";
-$db_con=mysql_connect($db_host,$username,$password);
-$connection_string=mysql_select_db($db_name);
-// connection
-
-mysql_connect($db_host,$username,$password);
-// make sure database is the active one
-mysql_select_db($db_name) or die("not found the db".mysql_error());
-
-
-
-// =================== Fetch news output / Success !===================================================
-
-$query =sprintf("SELECT * From tbl_key ORDER BY id ");
-	$result = mysql_query($query) or die(mysql_error());
-
-?>
-
-	<label for="search"> Search for something.... </label><input/>
-
-	<table >
+	<div ng-show="filteredItems > 0">
+		<table >
 		<thead>
-			<tr background='grey'>
-				<td>Name</td>
-				<td>Phone</td>
-				<td>Email</td>
-				<td>City</td>
-				<td>Address</td>
-				<td>LockModel</td>
-				<td>Key# and Combinations</td>
-			</tr>
+			<th>Name&nbsp;<a ng-click="sort_by('name');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Phone&nbsp;<a ng-click="sort_by('phone');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Email&nbsp;<a ng-click="sort_by('email');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>City&nbsp;<a ng-click="sort_by('city');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Address&nbsp;<a ng-click="sort_by('address');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Lock Model&nbsp;<a ng-click="sort_by('lockModel');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Key # or Combination&nbsp;<a ng-click="sort_by('key_combination');"><i class="glyphicon glyphicon-sort"></i></a></th>
 		</thead>
 		<tbody>
-<?php 
-	while($row = mysql_fetch_array($result)){
-?>
-			<tr>
-				<td><?php echo $row['name']; ?></td>
-				<td><?php echo $row['phone']; ?></td>
-				<td><?php echo $row['email']; ?></td>
-				<td><?php echo $row['city']; ?></td>
-				<td><?php echo $row['address']; ?></td>
-				<td><?php echo $row['lockModel']; ?></td>
-				<td><?php echo $row['key_combination']; ?></td>
+			<tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+			<td>{{data.name}}</td>
+			<td>{{data.phone}}</td>
+			<td>{{data.email}}</td>
+			<td>{{data.city}}</td>
+			<td>{{data.address}}</td>
+			<td>{{data.lockModel}}</td>
+			<td>{{data.key_combination}}</td>
 			</tr>
-<?php 
-	}
-?>
-
 		</tbody>
-	</table>
+		</table>
+	</div>
 
+</div>
 
 <style>
-table{
-	border: 1px solid black;
-}
-thead{
-	background: #ccc;
-}
-td{
-	padding:7px;
-}
+	body{
+		width:80%;
+		margin:20px auto;
+	}
+	table{
+		border: 1px solid black;
+	}
+	thead{
+		background: #ccc;
+	}
+	th a{
+		cursor: pointer;
+	}
+	td{
+		padding:7px;
+	}
 </style>
+
+<!--JS start-->
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
