@@ -26,18 +26,6 @@
 </head>
 
 <body>
-	<!--
-	Next steps:
-	1. Login to database (v)
-	2. Output in one page - search page. (v)
-	3. Call it from the search page - search / see if angular work .... .
-	   http://www.angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/
-	4. from validator
-	5. another table for more key registration. associated db. // user table link key table.
-	6. add new featured.
-	7. search page login.
-	-->
-
 <main id="page">
 
 	<h3> Key / Combination Registration </h3>
