@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" ng-app> 
+<html ng-app="myApp"> 
 <head>
 	<title>search for Registered User info</title>
 	<link href="js/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +27,32 @@
 	<div ng-show="filteredItems > 0">
 		<table >
 		<thead>
-			<th>Name&nbsp;<a ng-click="sort_by('name');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>Phone&nbsp;<a ng-click="sort_by('phone');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>Email&nbsp;<a ng-click="sort_by('email');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>City&nbsp;<a ng-click="sort_by('city');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>Address&nbsp;<a ng-click="sort_by('address');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>Lock Model&nbsp;<a ng-click="sort_by('lockModel');"><i class="glyphicon glyphicon-sort"></i></a></th>
-			<th>Key # or Combination&nbsp;<a ng-click="sort_by('key_combination');"><i class="glyphicon glyphicon-sort"></i></a></th>
+			<th>Name&nbsp;<a ng-click="sort_by('name');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>Phone&nbsp;<a ng-click="sort_by('phone');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>Email&nbsp;
+				<a ng-click="sort_by('email');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>City&nbsp;
+				<a ng-click="sort_by('city');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>Address&nbsp;
+				<a ng-click="sort_by('address');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>Lock Model&nbsp;
+				<a ng-click="sort_by('lockModel');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
+			<th>Key # or Combination&nbsp;
+				<a ng-click="sort_by('key_combination');">
+				<i class="glyphicon glyphicon-sort"></i></a>
+			</th>
 		</thead>
 		<tbody>
 			<tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -67,6 +86,13 @@
 	}
 	td{
 		padding:7px;
+	}
+	input{
+    border:1px solid black;
+    outline:none;
+	}
+	input.ng-invalid{
+	    border-color: red;
 	}
 </style>
 

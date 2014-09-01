@@ -17,7 +17,6 @@ $mysqli_in = $mysqli->prepare("INSERT INTO tbl_key (id, name, phone, email, city
 
 $mysqli_in->execute(); 
 
-
 	if($mysqli_in)
 	{
 	    echo 'information saved successfully.';
@@ -25,6 +24,7 @@ $mysqli_in->execute();
 	{
 	    echo 'Error: We encountered an error while inserting the new record.'.mysql_error();
 	}
+
 $mysqli_in->close();
 
 ?>

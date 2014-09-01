@@ -1,6 +1,6 @@
 <?php 
 // This page do:
-// get everything from the 
+// get everything from tbl_key prepare for ajax request
 
 include('config.php');
 
@@ -10,7 +10,7 @@ $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 $arr = array();
 if($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
-		$arr[] = $row;	
+		$arr[] = $row;
 	}
 }
 # JSON-encode the response

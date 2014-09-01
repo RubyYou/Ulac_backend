@@ -13,7 +13,7 @@ app.controller('searchCrtl', function ($scope, $http, $timeout) {
     $http.get('ajaxGet.php').success(function(data){
         $scope.list = data;
         $scope.currentPage = 1; //current page
-        $scope.entryLimit = 5; //max no of items to display in a page
+        $scope.entryLimit = 20; //max no of items to display in a page
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
         $scope.totalItems = $scope.list.length;
     });
@@ -30,3 +30,22 @@ app.controller('searchCrtl', function ($scope, $http, $timeout) {
         $scope.reverse = !$scope.reverse;
     };
 });
+
+
+function registerCtrl($scope) {
+    $scope.passwordA = 'abcde';
+}
+app.directive('pwCheck', [function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            var firstPassword = '#' + attrs.pwCheck;
+            elem.add(firstPassword).on('keyup', function () {
+                scope.$apply(function () {
+                    // console.info(elem.val() === $(firstPassword).val());
+                    ctrl.$setValidity('pwmatch', elem.val() === $(firstPassword).val());
+                });
+            });
+        }
+    }
+}]);
